@@ -54,7 +54,7 @@ class RecognitionsController < ApplicationController
     @recognition.nom = JSON.parse(res.body)["name"]
 
     @recognition.save!
-    redirect_to recognitions_path
+    redirect_to recognition_path(@recognition)
   end
 
   private
