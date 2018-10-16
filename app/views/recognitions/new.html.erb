@@ -1,0 +1,5 @@
+<%= simple_form_for @recognition do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Envoyer !", class: "btn btn-success"%>
+<% end %>
