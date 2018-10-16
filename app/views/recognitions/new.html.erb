@@ -3,3 +3,4 @@
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Envoyer !", class: "btn btn-success"%>
 <% end %>
+<p class="tmdb_key" data-tmdb="<%= "#{ENV['MS_FACES_API_KEY']}" %>"></p>

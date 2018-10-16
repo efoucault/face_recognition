@@ -13,7 +13,6 @@ class RecognitionsController < ApplicationController
 
   def create
     @recognition = Recognition.new(recognition_params)
-
     # detect a face in the picture
     puts("detect")
     require 'net/http'
@@ -22,7 +21,7 @@ class RecognitionsController < ApplicationController
     uri.query = URI.encode_www_form({})
     request = Net::HTTP::Post.new(uri.request_uri)
     request['Content-Type'] = 'application/octet-stream'
-    request['Ocp-Apim-Subscription-Key'] = key
+    request['Ocp-Apim-Subscription-Key'] = ENV["MS_KEY"]
     request.body = @recognition.photo.read
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         http.request(request)
@@ -36,7 +35,7 @@ class RecognitionsController < ApplicationController
     uri2.query = URI.encode_www_form({})
     request = Net::HTTP::Post.new(uri2.request_uri)
     request['Content-Type'] = 'application/json'
-    request['Ocp-Apim-Subscription-Key'] = key
+    request['Ocp-Apim-Subscription-Key'] = ENV["MS_KEY"]
     request.body = "{\"personGroupId\":\"twelvers\",\"faceIds\": [\""+ face_id +"\"],\"maxNumOfCandidatesReturned\": 1, \"confidenceThreshold\": 0.5}"
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         http.request(request)
@@ -48,7 +47,7 @@ class RecognitionsController < ApplicationController
     puts("get person")
     uri3 = URI("https://northeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/twelvers/persons/" + candidat_id)
     req = Net::HTTP::Get.new(uri3)
-    req['Ocp-Apim-Subscription-Key'] = key
+    req['Ocp-Apim-Subscription-Key'] = ENV["MS_KEY"]
     res = Net::HTTP.start(uri3.host, uri3.port, :use_ssl => uri.scheme == 'https') do |http|
         http.request(req)
       end
