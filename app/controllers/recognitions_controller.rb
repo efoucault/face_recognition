@@ -39,7 +39,6 @@ class RecognitionsController < ApplicationController
     candidats = []
     face_array.each_with_index do |face, index|
       puts("identify")
-      puts (face)
       uri2 = URI('https://northeurope.api.cognitive.microsoft.com/face/v1.0/identify')
       uri2.query = URI.encode_www_form({})
       request = Net::HTTP::Post.new(uri2.request_uri)
@@ -59,14 +58,19 @@ class RecognitionsController < ApplicationController
         res = Net::HTTP.start(uri3.host, uri3.port, :use_ssl => uri.scheme == 'https') do |http|
             http.request(req)
         end
-        candidats.push(JSON.parse(res.body)["name"])
+        if JSON.parse(res.body)["name"].present?
+          personne = JSON.parse(res.body)["name"]
+        end
+        candidats.push(personne)
+      else
+        personne = "John Doe"
+        candidats.push(personne)
       end
     end
-    # renseigner le nom de la recognition (soit la ou les personne reconnues, soit non reconnue)
     if candidats.present?
-      @recognition.nom = candidats.join
+      @recognition.nom = candidats.join(', ')
     else
-      @recognition.nom = "Je ne te connais pas"
+      @recognition.nom = "Je ne vois pas de tête !"
     end
     # get the person recognized
 
