@@ -1,12 +1,13 @@
-.image-show {
-  width: 20%;
-  height: 20%;
+h1 {
+  color: white;
 }
+
 .content {
   margin-top: 2em;
   display: flex;
   justify-content: space-around;
 }
+
 .picture-frame {
   width: 30vw;
   height: 80vh;
@@ -16,6 +17,15 @@
   display: table-cell;
   vertical-align: middle;
 }
+
+.picture-show {
+  width: 30vw;
+  height: 80vh;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .formulaire {
   width: 30vw;
   text-align: center;
@@ -31,6 +41,12 @@
   height: 100%;
   width: 100%;
 }
+
+.thumbnail-show {
+  height: 100%;
+  width: 100%;
+}
+
 .btn-success {
   background-color: #CD0B20;
   border: none;
@@ -54,10 +70,17 @@
   justify-content: space-around;
   }
   .picture-frame {
-    width: 90vw;
-    height: 80vh;
+    width: 85vw;
+    height: 70vh;
     // border: 1px solid rgb(200, 200, 200);
     // border-radius: 2%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .picture-show {
+    width: 85vw;
+    height: 70vh;
     text-align: center;
     display: table-cell;
     vertical-align: middle;
