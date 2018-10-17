@@ -8,7 +8,7 @@
       <div class="formulaire">
         <%= f.input :photo, input_html: { class: 'picture hidden', :data => { indeximg: f.index } }, label: false %>
         <%= f.input :photo_cache, as: :hidden, input_html: { class: 'photocache' } %>
-        <%= f.submit "Envoyer !", class: "btn btn-success"%>
+        <%= f.submit "Envoyer !", class: "btn btn-success no-click"%>
       </div>
     <% end %>
   </div>
