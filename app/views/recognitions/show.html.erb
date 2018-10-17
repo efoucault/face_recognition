@@ -1,8 +1,61 @@
 <div class="container">
-  <div class="content">
+  <div class="content-show">
     <div class="picture-show">
       <h1><%= @recognition.nom %></h1>
       <%= cl_image_tag @recognition.photo, crop: :fill, class: 'thumbnail' %>
+    </div>
+    <% if @recognition.nom.include? "Markus Geier" %>
+      <div class="twelveur markus">
+        <div class="card-title">
+          <p class="nom">Markus Geier</p>
+          <a href="https://twelveconsulting.sharepoint.com/:p:/r/_layouts/15/Doc.aspx?sourcedoc=%7B1BD0047C-3264-4E95-9BE7-8C1770D3F165%7D&file=CV%20MArkus%20Geier.pptx&action=edit&mobileredirect=true"><i class="fas fa-info-circle"></i></a>
+        </div>
+        <div class="balaise">
+          <div class="titre">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <div class="description">
+            <p>Vision technique et métier</p>
+          </div>
+        </div>
+        <div class="cool">
+          <div class="titre">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <div class="description">
+            <p>Italo – Franco – Allemand​</p>
+            <p>Pense plus aux utilisateurs que les consultants​</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if @recognition.nom.include? "Eric Foucault" %>
+      <div class="twelveur eric">
+        <div class="card-title">
+          <p class="nom">Eric Foucault</p>
+          <a href="https://twelveconsulting.sharepoint.com/:p:/r/_layouts/15/Doc.aspx?sourcedoc=%7B1BD0047C-3264-4E95-9BE7-8C1770D3F165%7D&file=CV%20MArkus%20Geier.pptx&action=edit&mobileredirect=true"><i class="fas fa-info-circle"></i></a>
+        </div>
+        <div class="balaise">
+          <div class="titre">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <div class="description">
+            <p>Développeur du dimanche</p>
+          </div>
+        </div>
+        <div class="cool">
+          <div class="titre">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <div class="description">
+            <p>Mannequin, comédien semi-professionnel</p>
+            <p>Le Wagon Alumni</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="formulaire">
+      <p class="btn btn-success"><%= link_to "Rejouer", root_path %></p>
     </div>
   </div>
 </div>
