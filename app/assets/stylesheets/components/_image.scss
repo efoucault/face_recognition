@@ -10,8 +10,8 @@
 .picture-frame {
   width: 30vw;
   height: 80vh;
-  // border: 1px solid rgb(200, 200, 200);
-  // border-radius: 2%;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 2%;
   text-align: center;
   display: table-cell;
   vertical-align: middle;
@@ -24,11 +24,27 @@
 .fa {
   font-size: 5em;
   margin:0 auto;
+  color: white;
 }
 
 .thumbnail {
   height: 100%;
   width: 100%;
+}
+.btn-success {
+  background-color: #CD0B20;
+  border: none;
+  font-size: 2em;
+  &:hover {
+    background-color: #CD0B20;
+    font-weight: 800;
+  }
+}
+#no-border {
+  border: none;
+}
+.no-click {
+    pointer-events: none;
 }
 
 @media screen and (max-width: 640px) {

@@ -9,6 +9,7 @@ pictureIcon.addEventListener("click", (event) => {
 // display thumbnail preview
 const camera = document.querySelector(".fa-camera");
 const photoCachee = document.querySelector(".picture");
+const submit = document.querySelector(".no-click");
 photoCachee.addEventListener("change", (event) => {
     const img = document.getElementById("img_prev");
     const titleOption = document.querySelector(".thumbnail");
@@ -20,4 +21,6 @@ photoCachee.addEventListener("change", (event) => {
       }
       reader.readAsDataURL(photoCachee.files[0]);
       camera.classList.add("hidden");
+      pictureIcon.setAttribute("id", "no-border");
+      submit.classList.remove("no-click");
   });
